@@ -27,7 +27,7 @@ async def _(event):
     if not reply_message.media:
         await edit_or_reply(event, "```reply to a media message```")
         return
-    chat = "@DrWebBot"
+    chat = "@SNI1FF_BOT"
     if reply_message.sender.bot:
         await edit_or_reply(event, "```Reply to actual users message.```")
         return
@@ -35,12 +35,12 @@ async def _(event):
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(incoming=True, from_users=161163358)
+                events.NewMessage(incoming=True, from_users=1400212466)
             )
             await event.client.forward_messages(chat, reply_message)
             response = await response
         except YouBlockedUserError:
-            await catevent.edit("`Please unblock `@DrWebBot `and try again`")
+            await catevent.edit("`Please unblock `SNI1FF_BOT `and try again`")
             return
         if response.text.startswith("Forward"):
             await catevent.edit(
@@ -49,11 +49,11 @@ async def _(event):
         else:
             if response.text.startswith("Select"):
                 await catevent.edit(
-                    "`Please go to` @DrWebBot `and select your language.`"
+                    "`Please go to` SNI1FF_BOT `and select your language.`"
                 )
             else:
                 await catevent.edit(
-                    f"**Antivirus scan was completed. I got dem final results.**\n {response.message.message}"
+                    f"**Decrypt was completed. I got dem final results.**\n {response.message.message}"
                 )
 
 
